@@ -5,6 +5,8 @@
  */
 package linkia_1819_m03_uf4_c04;
 
+import java.util.Objects;
+
 /**
  *
  * @author dmorenoar
@@ -21,6 +23,8 @@ public class Dinosaurio {
         //incrementar el objeto común
     }
 
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -39,6 +43,36 @@ public class Dinosaurio {
 
     @Override
     public String toString() {
-        return "Dinosaurio{" + "nombre=" + nombre + ", tipo=" + tipo + '}';
+        return "Dinosaurio : " + "nombre=" + nombre + ", tipo=" + tipo + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Dinosaurio other = (Dinosaurio) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    
+    
+    
 }
